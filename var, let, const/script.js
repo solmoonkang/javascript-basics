@@ -18,3 +18,14 @@ console.log(greeting);
 
 greet = 'hi';
 console.log(greeting);
+
+// const: 중복 선언과 재할당 불가
+const greetings = 'hello';
+console.log(greetings);
+
+// 다음과 같이 선언할 경우 Error가 발생
+// const greetings = 'hi';
+// console.log(greetings);
+
+// greetings = 'hi';
+// console.log(greetings);
