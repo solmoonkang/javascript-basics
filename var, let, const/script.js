@@ -29,3 +29,16 @@ console.log(greetings);
 
 // greetings = 'hi';
 // console.log(greetings);
+
+// var function-level scope
+function func() {
+    if(true) {
+    // 선언한 변수 a의 범위가 함수 레벨이므로 func 함수 내부에 있을 경우 사용이 가능하다.
+    var a = 'a';
+    console.log(a);
+    }
+    console.log(a);
+}
+// 해당 출력은 Error가 발생
+// console.log(a);
+func();
