@@ -42,3 +42,17 @@ function func() {
 // 해당 출력은 Error가 발생
 // console.log(a);
 func();
+
+// let/const block-level scope
+function funt() {
+    if(true) {
+        let a = 'a';
+        // const 또한 마찬가지이다.
+        // const a = 'a';
+        console.log(a);
+    }
+    // let은 블록 레벨 범위이므로 범위 초과가 발생
+    // console.log(a);
+}
+
+funt();
