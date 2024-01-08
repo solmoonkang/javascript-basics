@@ -54,5 +54,15 @@ function funt() {
     // let은 블록 레벨 범위이므로 범위 초과가 발생
     // console.log(a);
 }
-
 funt();
+
+// var hoisting
+console.log(greeting);
+var greeting = 'hello';
+
+// function hoisting
+funa();
+
+function funa() {
+    console.log('hoisting test');
+}
