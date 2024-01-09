@@ -19,3 +19,11 @@ val = document.forms[0].className;
 val = document.scripts[0].getAttribute('src');
 
 console.log(val);
+
+// 하나의 요소에 접근할 때
+const headerContainer = document.getElementById('header-container');
+headerContainer.style.display = 'none';
+
+headerContainer.textContent = 'Text Content';
+headerContainer.innerText = 'Inner Text';
+headerContainer.innerHTML = '<span>Inner HTML</span>';
