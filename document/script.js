@@ -27,3 +27,34 @@ headerContainer.style.display = 'none';
 headerContainer.textContent = 'Text Content';
 headerContainer.innerText = 'Inner Text';
 headerContainer.innerHTML = '<span>Inner HTML</span>';
+
+// 여러 요소에 접근할 때
+const items = document.getElementsByClassName('list-group-item');
+console.log(items);
+
+items[0].style.color = 'blue';
+items[3].textContent = 'Hi';
+
+let lists = document.getElementsByTagName('li');
+// Collection으로 출력된다.
+console.log(lists);
+
+// Collection은 forEach를 사용해서 출력하지 못한다.
+// lists.array.forEach(list => {
+//     console.log(list);
+// });
+
+
+lists = Array.from(lists);
+// Collection을 Array로 출력한다.
+console.log(lists);
+
+lists.array.forEach((list, index) => {
+    list.textContent = `${index}. List`;
+});
+
+const liOdd = document.querySelectorAll('li:nth-child(odd)');
+
+liOdd.forEach((li) => {
+    li.style.background = 'gray';
+});
