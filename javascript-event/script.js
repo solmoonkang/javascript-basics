@@ -32,3 +32,39 @@ buttonElement.addEventListener('click', (event) => {
 
     console.log(val);
 });
+
+
+const submitBtn = document.querySelector('.submit-btn');
+const title = document.querySelector('h2');
+
+// CLICK EVENT TYPES
+submitBtn.addEventListener('click', (handleEvent));
+submitBtn.addEventListener('dblclick', (handleEvent));
+submitBtn.addEventListener('mousedown', (handleEvent));
+submitBtn.addEventListener('mouseup', (handleEvent));
+submitBtn.addEventListener('mouseenter', (handleEvent));
+submitBtn.addEventListener('mouseleave', (handleEvent));
+submitBtn.addEventListener('mousemove', (handleEvent));
+
+
+const form = document.querySelector('form');
+const emailInput = document.getElementById('email');
+
+// FORM EVENT TYPES
+
+form.addEventListener('submit', (handleEvent));
+emailInput.addEventListener('keydown', (handleEvent));
+emailInput.addEventListener('keyup', (handleEvent));
+emailInput.addEventListener('keypress', (handleEvent));
+emailInput.addEventListener('focus', (handleEvent));
+emailInput.addEventListener('blur', (handleEvent));
+emailInput.addEventListener('cut', (handleEvent));
+
+function handleEvent(event) {
+    if(event.type ==='submit') {
+        event.preventDefault();
+    }
+    console.log('Event Type: ${event.type}');
+    // title.textContent = 'MouseX: ${event.offsetX} MouseY: ${event.offsetY}';
+    title.textContent = event.target.value;
+}
