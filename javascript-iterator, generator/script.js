@@ -58,3 +58,71 @@ const obj = { a: 1, b: 2 };
 console.log(arr[Symbol.iterator]().next());
 console.log(set[Symbol.iterator]().next());
 console.log(map[Symbol.iterator]().next());
+
+
+
+
+
+// Generator Example
+function* sayNumbers() {
+    // generator 함수의 실행을 일시적으로 정지시킨다. 일반 함수의 return 문과 매우 유사하다.
+    yield 1;
+    yield 2;
+    yield 3;
+  }
+  // generator 함수의 반환이 generator이다.
+  const number = sayNumbers();
+  
+  console.log(number.next().value);
+  console.log(number.next().value);
+  console.log(number.next().value);
+  console.log(number.next().value);
+  
+  
+  
+  // Generator Function Example
+  function* generatorFunction() {
+      yield 1;
+  }
+  
+  const generator1 = generatorFunction();
+  
+  console.log(generator1 === generator1[Symbol.iterator]());
+  
+  // ID Creator
+  function* createIds() {
+      let index = 1;
+  
+      while (true) {
+          yield index++;
+      }
+  }
+  
+
+
+  const gen = createIds();
+  
+  console.log(gen.next());
+  console.log(gen.next());
+  console.log(gen.next());
+  console.log(gen.return(10));
+  
+  
+  
+  function* generatorFunction() {
+      for (const number of [1, 2, 3]) {
+          yield number;
+      }
+  
+      // yield 1; yield 2; yield 3; 과 동일한 방식이다.
+      yield* [1, 2, 3];
+  }
+  
+  const generator2 = generatorFunction();
+  console.log(generator2.next());
+  console.log(generator2.next());
+  console.log(generator2.next());
+  
+  for (const number of generator2) {
+      console.log(number);
+  }
