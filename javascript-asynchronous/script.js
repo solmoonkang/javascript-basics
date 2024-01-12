@@ -64,3 +64,17 @@ const promise3 = new Promise((resolve, reject) => {
 Promise.all([promise1, promise2, promise3]).then((values) => {
     console.log(values);
 });
+
+const promise4 = new Promise((resolve, reject) => {
+    setTimeout(resolve, 500, 'one');
+});
+
+const promise5 = new Promise((resolve, reject) => {
+    setTimeout(resolve, 100, 'two');
+});
+
+Promise.race([promise4, promise5]).then((value) => {
+    console.log(value);
+    // Both resolve, but promise5 is faster
+});
+// Expected output: "two"
