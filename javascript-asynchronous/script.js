@@ -17,6 +17,10 @@ firstFunction(para, function (response1) {
     });
 });
 
+
+
+
+
 // Promise
 function fetchData() {
     return new Promise((resolve, reject) => {
@@ -78,3 +82,25 @@ Promise.race([promise4, promise5]).then((value) => {
     // Both resolve, but promise5 is faster
 });
 // Expected output: "two"
+
+
+
+
+// Async/Await
+async function makeRequest() {
+    try {
+        const response1 = await fetch('https://jsonplaceholder.typicode.com/todos/1');
+        const jsonResponse1 = await response1.json();
+        console.log('jsonResponse1', jsonResponse1);
+
+        const response2 = fetch('https://jsonplaceholder.typicode.com/todos/2');
+        const jsonResponse2 = await response2.json();
+        console.log('jsonResponse2', jsonResponse2);
+    } catch (error) {
+        console.log('error', error);
+    } finally {
+        console.log('---모든 작업 끝---');
+    }
+}
+
+makeRequest();
