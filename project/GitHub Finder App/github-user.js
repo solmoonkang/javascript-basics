@@ -11,10 +11,10 @@ class GithubUser {
             if (!response.ok) {
                 throw new Error(`An error occurred: ${response.statusText}`);
             }
-            const data = await response.json();
-            return [null, data];
+            return await response.json();
         } catch (error) {
-            return [error, null];
+            console.error(`An error occurred while fetching the profile: ${error}`);
+            throw error;
         }
     }
 
@@ -24,10 +24,10 @@ class GithubUser {
             if (!response.ok) {
                 throw new Error(`An error occurred: ${response.statusText}`);
             }
-            const data = await response.json();
-            return [null, data];
+            return await response.json();
         } catch (error) {
-            return [error, null];
+            console.error(`An error occurred while fetching the repos: ${error}`);
+            throw error;
         }
     }
 }
