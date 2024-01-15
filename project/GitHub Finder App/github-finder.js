@@ -18,23 +18,23 @@ class GithubFinder {
             const data = await this.user.fetchProfile();
 
             const html =  `
-            <div class="profile_info-content">
-                <div class="profile_info-img">
+            <div class="user-profile">
+                <div class="user-profile-img">
                     <img src="${data.avatar_url}" alt="profile image"/>
                     <a href="${data.html_url}" target="_blank">
                         <button>Visit GitHub Profile</button>
                     </a>
                 </div>
 
-                <div class="porfile_info-detail">
-                    <div class="detail-button">
+                <div class="user-porfile-detail">
+                    <div class="user-stats">
                         <div>Public Repos: ${data.public_repos}</div>
                         <div>Public Gists: ${data.public_gists}</div>
                         <div>Followers: ${data.followers}</div>
                         <div>Following: ${data.following}</div>
                     </div>
                     
-                    <div class="detail-content">
+                    <div class="user-info">
                         <div>Company: ${data.company || 'N/A'}</div>
                         <div>Website/Blog: ${data.blog || 'N/A'}</div>
                         <div>Location: ${data.location || 'N/A'}</div>
@@ -61,7 +61,7 @@ class GithubFinder {
             let html = '<h3>Latest Repos</h3>';
             for (let repo of repos) {
                 html += `
-                <div class="latest_repos-content">
+                <div class="repo-card">
                     ${repo.name}
                     <div>Stars: ${repo.stargazers_count}</div>
                     <div>Watchers: ${repo.watchers_count}</div>
