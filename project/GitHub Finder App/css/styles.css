@@ -80,6 +80,7 @@
     }
 
     /* USER-PROFILE-DETAIL */
+    /* TODO: USER-STATS, USER-INFO도 마찬가지로 사진과 맞게 크기 조정 */
     .user-profile-detail {
         grid-column: 2 / 3;
         grid-row: 1 / 3;
@@ -133,6 +134,7 @@
 
 
     /* USER-PROFILE-BUTTON */
+    /* TODO: 버튼 크기를 사진과 맞춰서 */
     .user-profile-button {
         grid-column: 1 / 3;
         grid-row: 3 / 4;

@@ -18,17 +18,14 @@ class GithubFinder {
             <div class="user-profile">
                 <div class="user-profile-img">
                     <img src="${data.avatar_url}" alt="profile image"/>
-                    <a href="${data.html_url}" target="_blank">
-                        <button>Visit GitHub Profile</button>
-                    </a>
                 </div>
 
-                <div class="user-porfile-detail">
+                <div class="user-profile-detail">
                     <div class="user-stats">
-                        <div>Public Repos: ${data.public_repos}</div>
-                        <div>Public Gists: ${data.public_gists}</div>
-                        <div>Followers: ${data.followers}</div>
-                        <div>Following: ${data.following}</div>
+                        <div class="user-stats-repo">Public Repos: ${data.public_repos}</div>
+                        <div class="user-stats-gist">Public Gists: ${data.public_gists}</div>
+                        <div class="user-stats-follower">Followers: ${data.followers}</div>
+                        <div class="user-stats-following">Following: ${data.following}</div>
                     </div>
                     
                     <div class="user-info">
@@ -37,6 +34,12 @@ class GithubFinder {
                         <div>Location: ${data.location || 'N/A'}</div>
                         <div>Member Since: ${data.created_at || 'N/A'}</div>
                     </div>
+                </div>
+                
+                <div class="user-profile-button">
+                    <a href="${data.html_url}" target="_blank">
+                        <button>Visit GitHub Profile</button>
+                    </a>
                 </div>
             </div>
             `;
