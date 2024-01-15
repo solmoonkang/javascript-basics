@@ -6,6 +6,6 @@ const finder = new GithubFinder();
 document.querySelector('.search-bar').addEventListener('keypress', (event) => {
     if (event.key === 'Enter') {
         finder.searchUser();
-        finder.fetchRepos();
+        finder.searchRepos();
     }
 });
