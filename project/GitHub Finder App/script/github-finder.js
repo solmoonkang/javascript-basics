@@ -3,19 +3,16 @@ import GithubUser from './github-user.js';
 
 class GithubFinder {
     constructor() {
-        this.searchBar = document.querySelector('.search-bar');
-        this.profileSection = document.querySelector('.profile_info-section');
-        this.reposSection = document.querySelector('.latest_repos-section');
-        this.user = new GithubUser(this.searchBar.value);
+        this.searchInput = document.querySelector('.search-input');
+        this.userProfileSection = document.querySelector('.user-profile-section');
+        this.reposSection = document.querySelector('.latest-repos-section');
     }
 
     async searchUser() {
         try {
-            const username = this.searchBar.value;
+            const username = this.searchInput.value;
             const user = new GithubUser(username);
-
-            this.user.username = this.searchBar.value;
-            const data = await this.user.fetchProfile();
+            const data = await user.fetchProfile();
 
             const html =  `
             <div class="user-profile">
@@ -44,7 +41,7 @@ class GithubFinder {
             </div>
             `;
 
-            this.profileSection.innerHTML = html;
+            this.userProfileSection.innerHTML = html;
         } catch (error) {
             console.error(`An error occurred while fetching the profile: ${error.message}`);
         }
@@ -52,11 +49,9 @@ class GithubFinder {
 
     async searchRepos() {
         try {
-            const username = this.searchBar.value;
+            const username = this.searchInput.value;
             const user = new GithubUser(username);
-
-            this.user.username = this.searchBar.value;
-            const repos = await this.user.fetchRepos();
+            const repos = await user.fetchRepos();
 
             let html = '<h3>Latest Repos</h3>';
             for (let repo of repos) {
