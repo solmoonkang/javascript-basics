@@ -98,8 +98,8 @@
                 display: flex;
                 justify-content: center;
                 align-items: center;
-                width: 130px;
-                height: 30px;
+                align-items: center;
+                padding: 5px;
                 border: 1px solid;
                 color: white;
                 border-radius: 4px;
@@ -145,3 +145,80 @@
         height: 40px;
         border-radius: 4px;
     }
+
+
+
+
+
+
+
+/* LATEST-REPOSITORY-SECTION */
+.latest-repos-section h3 {
+    font-size: 25px;
+    margin-left: 20px;
+    margin-top: 20px;
+}
+
+
+/* STARS, WATCHERS, FORKS + REPO-NAME 을 조정 */
+.repo-card {
+    display: flex;
+    flex-direction: row;
+    color: blue;
+    font-size: 20px;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.repo-name {
+    flex-grow: 0;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    margin-right: 10px;
+}
+
+
+/* STARS, WATCHERS, FORKS 전체를 조정 */
+.repo-card div {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 8px;
+    /* margin-right: auto; */
+}
+
+.repo-info {
+    display: flex;
+    flex-shrink: 0;
+    flex-grow: 0;
+    flex-basis: 50%;
+    justify-content: center;
+    text-align: left;
+    padding-left: 10px;
+}
+
+
+.repo-star {
+    background-color: blue;
+    color: white;
+    border-radius: 4px;
+    border: 1px solid;
+    font-size: 17px;
+}
+
+.repo-watcher {
+    background-color: gray;
+    color: white;
+    border-radius: 4px;
+    border: 1px solid;
+    font-size: 17px;
+}
+
+.repo-fork {
+    background-color: green;
+    color: white;
+    border-radius: 4px;
+    border: 1px solid;
+    font-size: 17px;
+}
