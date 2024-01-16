@@ -8,7 +8,16 @@ class GithubFinder {
         this.reposSection = document.querySelector('.latest-repos-section');
     }
 
+    initializeProfileSection() {
+        this.userProfileSection.innerHTML = ''; 
+    }
+
+    initializeReposSection() {
+        this.reposSection.innerHTML = ''; 
+    }
+
     async searchUser() {
+        this.initializeProfileSection();
         try {
             const username = this.searchInput.value;
             const user = new GithubUser(username);
@@ -16,10 +25,16 @@ class GithubFinder {
 
             const html =  `
             <div class="user-profile">
-                <div class="user-profile-img">
-                    <img src="${data.avatar_url}" alt="profile image"/>
+                <div class="user-profile-side">
+                    <div class="user-profile-img">
+                        <img src="${data.avatar_url}" alt="profile image"/>
+                    </div>
+                    <div class="user-profile-button">
+                        <a href="${data.html_url}" target="_blank">
+                            <button>Visit GitHub Profile</button>
+                        </a>
+                    </div>
                 </div>
-
                 <div class="user-profile-detail">
                     <div class="user-stats">
                         <div class="user-stats-repo">Public Repos: ${data.public_repos}</div>
@@ -27,19 +42,12 @@ class GithubFinder {
                         <div class="user-stats-follower">Followers: ${data.followers}</div>
                         <div class="user-stats-following">Following: ${data.following}</div>
                     </div>
-                    
                     <div class="user-info">
                         <div>Company: ${data.company || 'N/A'}</div>
                         <div>Website/Blog: ${data.blog || 'N/A'}</div>
                         <div>Location: ${data.location || 'N/A'}</div>
                         <div>Member Since: ${data.created_at || 'N/A'}</div>
                     </div>
-                </div>
-                
-                <div class="user-profile-button">
-                    <a href="${data.html_url}" target="_blank">
-                        <button>Visit GitHub Profile</button>
-                    </a>
                 </div>
             </div>
             `;
@@ -51,6 +59,7 @@ class GithubFinder {
     }
 
     async searchRepos() {
+        this.initializeReposSection();
         try {
             const username = this.searchInput.value;
             const user = new GithubUser(username);
