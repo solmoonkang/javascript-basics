@@ -9,3 +9,7 @@ document.querySelector('.search-input').addEventListener('keypress', (event) => 
         finder.searchRepos();
     }
 });
+
+document.querySelector('#header').addEventListener('click', () => {
+    finder.reset();
+});
