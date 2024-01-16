@@ -9,11 +9,17 @@ class GithubFinder {
     }
 
     initializeProfileSection() {
-        this.userProfileSection.innerHTML = ''; 
+        this.userProfileSection.innerHTML = '';
     }
 
     initializeReposSection() {
-        this.reposSection.innerHTML = ''; 
+        this.reposSection.innerHTML = '';
+    }
+
+    reset() {
+        this.initializeProfileSection();
+        this.initializeReposSection();
+        this.searchInput.value = '';
     }
 
     async searchUser() {
