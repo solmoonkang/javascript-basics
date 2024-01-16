@@ -8,7 +8,6 @@
     width: 1200px;
 }
 
-
 /* HEADER */
 .header {
     background-color: darkblue;
@@ -17,7 +16,6 @@
     text-align: left;
     padding: 20px;
 }
-
 
 /* SEARCH-SECTION */
 .search-section {
@@ -43,13 +41,13 @@
     width: 100%;
     height: 50px;
     padding-left: 15px;
+    font-size: 15px;
 }
 
 .search-input::placeholder {
     color: rgba(0, 0, 0, 0.5);
     font-size: 15px;
 }
-
 
 /* USER-PROFILE-SECTION */
 .user-profile, 
@@ -61,96 +59,119 @@
 
 /* USER-PROFILE */
 .user-profile {
-    display: grid;
-    grid-template-columns: 1fr 2fr;
-    grid-template-rows: 2fr 1fr;
+    display: flex;
+    flex-direction: row;
+    align-items: stretch;
 }
 
-    /* USER-PROFILE-IMG */
-    .user-profile-img {
-        grid-column: 1 / 2;
-        grid-row: 1 / 3;
-        margin-top: 20px;
-        margin-bottom: 20px;
+.user-profile-side {
+    display: flex;
+    flex: 0 0 30%;
+    flex-direction: column;
+    justify-content: space-evenly;
+    width: 100%;
+}
+
+@media (min-width: 768px) {
+    .user-profile-side {
+        flex: 0 0 30%;
+        max-width: 30%;
     }
 
-    .user-profile-img img {
-        width: auto;
-        height: 350px;
-    }
-
-    /* USER-PROFILE-DETAIL */
-    /* TODO: USER-STATS, USER-INFO도 마찬가지로 사진과 맞게 크기 조정 */
     .user-profile-detail {
-        grid-column: 2 / 3;
-        grid-row: 1 / 3;
+        flex: 0 0 70%;
+        max-width: 70%;
     }
+}
 
-        /* USER-STATS */
-        .user-stats {
-            display: flex;
-            justify-content: flex-start;
-            margin-top: 20px;
-            margin-bottom: 20px;
-        }
+/* USER-PROFILE-IMG */
+.user-profile-img {
+    width: 100%;
+    height: auto;
+}
 
-            .user-stats div {
-                display: flex;
-                justify-content: center;
-                align-items: center;
-                align-items: center;
-                padding: 5px;
-                border: 1px solid;
-                color: white;
-                border-radius: 4px;
-                margin-right: 5px;
-            }
+.user-profile-img img {
+    width: 100%;
+    height: auto;
+    border-radius: 4px;
+    object-fit: cover;
+}
 
-            .user-stats-repo {
-                background-color: blue;
-            }
+.user-profile-button {
+    justify-content: center;
+}
 
-            .user-stats-gist {
-                background-color: gray;
-            }
+/* USER-PROFILE-BUTTON */
+.user-profile-button button {
+    width: 100%;
+    height: 50px;
+    border-radius: 4px;
+}
 
-            .user-stats-follower {
-                background-color: green;
-            }
+.user-profile-button button:hover {
+    background-color: lightgray;
+}
 
-            .user-stats-following {
-                background-color: darkslategrey;
-            }
+/* USER-PROFILE-DETAIL */
+.user-profile-detail {
+    display: flex;
+    flex: 0 0 70%;
+    flex-direction: column;
+    padding: 30px;
+    margin-left: 15px;
+}
 
-        /* USER-INFO */
-        .user-info {
-        }
+/* USER-STATS */
+.user-stats {
+    display: flex;
+    justify-content: flex-start;
+    margin-top: 15px;
+    margin-bottom: 20px;
+}
 
-            .user-info div {
-                padding: 10px;
-                border: 1px solid lightgray;
-                border-bottom: lightgray solid;
-            }
+.user-stats div {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 7px;
+    border: 1px solid;
+    color: white;
+    border-radius: 4px;
+    margin-right: 5px;
+    text-align: left;
+    padding-left: 10px;
+}
 
+.user-stats-repo {
+    background-color: blue;
+}
 
-    /* USER-PROFILE-BUTTON */
-    /* TODO: 버튼 크기를 사진과 맞춰서 */
-    .user-profile-button {
-        grid-column: 1 / 3;
-        grid-row: 3 / 4;
-    }
+.user-stats-gist {
+    background-color: gray;
+}
 
-    .user-profile-button button {
-        width: 31%;
-        height: 40px;
-        border-radius: 4px;
-    }
+.user-stats-follower {
+    background-color: green;
+}
 
+.user-stats-following {
+    background-color: darkslategrey;
+}
 
+/* USER-INFO */
+.user-info {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    flex-grow: 1;
+}
 
-
-
-
+.user-info div {
+    padding: 20px;
+    border: 1px solid lightgray;
+    border-bottom: lightgray solid;
+    margin-bottom: 5px;
+}
 
 /* LATEST-REPOSITORY-SECTION */
 .latest-repos-section h3 {
@@ -159,8 +180,6 @@
     margin-top: 20px;
 }
 
-
-/* STARS, WATCHERS, FORKS + REPO-NAME 을 조정 */
 .repo-card {
     display: flex;
     flex-direction: row;
@@ -178,8 +197,6 @@
     margin-right: 10px;
 }
 
-
-/* STARS, WATCHERS, FORKS 전체를 조정 */
 .repo-card div {
     display: flex;
     justify-content: center;
@@ -197,7 +214,6 @@
     text-align: left;
     padding-left: 10px;
 }
-
 
 .repo-star {
     background-color: blue;
