@@ -6,6 +6,7 @@ class GithubFinder {
         this.searchInput = document.querySelector('.search-input');
         this.userProfileSection = document.querySelector('.user-profile-section');
         this.reposSection = document.querySelector('.latest-repos-section');
+        this.searchHistoryManager = new SearchHistoryManager();
     }
 
     initializeProfileSection() {
@@ -92,4 +93,27 @@ class GithubFinder {
     }
 }
 
+class SearchHistoryManager {
+    // 로컬 스토리지에서 검색 기록을 불러오는 메서드
+    loadSearchHistory() {
+        return JSON.parse(localStorage.getItem('searchHistory')) || [];
+    }
+
+    // 검색한 사용자 이름을 로컬 스토리지에 저장하는 메서드
+    saveSearchHistory(username) {
+        const searchHistory = JSON.parse(localStorage.getItem('searchHistory')) || [];
+        if (!searchHistory.includes(username)) {
+            searchHistory.push(username);
+            localStorage.setItem('searchHistory', JSON.stringify(searchHistory));
+        }
+    }
+
+    // 검색창의 텍스트에 맞게 검색 기록을 필터링하는 메서드
+    filterSearchHistory(query) {
+        const searchHistory = this.loadSearchHistory();
+        return searchHistory.filter(username => username.includes(query));
+    }
+}
+
 export default GithubFinder;
+export { SearchHistoryManager };
