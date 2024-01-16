@@ -28,6 +28,8 @@ function showSearchHistory(history) {
             finder.searchInput.value = username;
             finder.searchUser();
             finder.searchRepos();
+
+            searchHistoryDropdown.style.display = 'none';
         });
 
         searchHistoryDropdown.appendChild(div);
