@@ -60,10 +60,12 @@ class GithubFinder {
             for (let repo of repos) {
                 html += `
                 <div class="repo-card">
-                    ${repo.name}
-                    <div>Stars: ${repo.stargazers_count}</div>
-                    <div>Watchers: ${repo.watchers_count}</div>
-                    <div>Forks: ${repo.forks_count}</div>
+                    <div class="repo-name">${repo.name}</div>
+                    <div class="repo-info">
+                        <div class="repo-star">Stars: ${repo.stargazers_count}</div>
+                        <div class="repo-watcher">Watchers: ${repo.watchers_count}</div>
+                        <div class="repo-fork">Forks: ${repo.forks_count ? repo.forks_count : 'undefined'}</div>
+                    </div>
                 </div>
                 `;
             }
