@@ -9,7 +9,7 @@ document.querySelector('.search-input').addEventListener('keypress', (event) => 
     if (event.key === 'Enter') {
         finder.searchUser();
         finder.searchRepos();
-        finder.saveSearchHistory(finder.searchInput.value);
+        finder.searchHistoryManager.saveSearchHistory(finder.searchInput.value);
     }
 });
 
